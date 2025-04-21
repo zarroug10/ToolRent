@@ -1,0 +1,91 @@
+<div class="image-container text-center">
+  <div class="image-text">
+    <h1>🌱 <br> Farm Tools</h1>
+    <p>Power up your fieldwork – affordable farming tools at your fingertips.</p>
+    <button class="btn btn-success">Discover our collection</button>
+  </div>
+</div>
+
+<h2 class="section-title text-center mt-4">Our Products</h2>
+<p class="section-description text-center mb-4">Browse through our wide range of tools and accessories.</p>
+
+<!-- Product List -->
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let product of paginatedProducts">
+      <div class="product-card text-center p-3 border rounded" [ngClass]="" >
+        <img [src]="product.image" [alt]="product.name" class="product-image img-fluid mb-2">
+        <h3 class="h5">{{ product.name }}</h3>
+        <p class="text-muted">{{ product.description }}</p>
+        <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#productModal">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination Controls -->
+<nav class="pagination justify-content-center mt-4" *ngIf="totalPages > 1">
+  <ul class="pagination">
+    <!-- Previous Button -->
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="changePage(currentPage - 1)" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+
+    <!-- Page Numbers -->
+    <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="currentPage === i + 1">
+      <a class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</a>
+    </li>
+
+    <!-- Next Button -->
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" (click)="changePage(currentPage + 1)" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Customer Reviews Section -->
+<div class="bg-light py-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2>What our customers say</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, animi voluptatum. Dignissimos?</p>
+        <button class="btn btn-success">Learn more</button>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="images/Pesticide.png" alt="Customer Review" class="img-fluid shadow">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-success bg-opacity-25 py-4">
+  <div class="container">
+    <h2 class="text-center">Reviews</h2>
+    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam!</p>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let review of reviews">
+        <div class="product-card text-center p-3 border rounded">
+          <img src="images/user.png" alt="User" class="user-image img-fluid rounded-circle mb-2">
+          <h3 class="h5">{{ review.title }}</h3>
+          <div class="review-container" >
+            <p class="review" [ngClass]="{'animate':  review.content.length >= 69}">
+              "{{ review.content }}"</p>
+          </div>
+          <div class="product-rating">
+            <span *ngFor="let star of [].constructor(review.rating)" class="star text-warning">★</span>
+            <span *ngFor="let star of [].constructor(5 - review.rating)" class="star text-secondary">★</span>
+          </div>
+          <p class="text-muted">{{ review.author }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-product-dialog  #productModal></app-product-dialog>
+
