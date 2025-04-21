@@ -1,25 +1,25 @@
-<header class="navbar">
-  <div class="navbar-container">
-    <a routerLink="/home" class="navbar-logo">MyApp</a>
+<header class="navbar-container p-3">
+    <a routerLink="/home" class="navbar-logo text" >MyApp</a>
     <nav class="navbar-links">
-      <a routerLink="/about" routerLinkActive="active" class="navbar-link">About</a>
-      <a routerLink="/contact" routerLinkActive="active" class="navbar-link">Contact</a>
+      <a routerLink="/about" routerLinkActive="active" class="text">About</a>
+      <a routerLink="/contact" routerLinkActive="active" class="text">Contact</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle text" data-bs-toggle="dropdown" style="cursor: pointer;">Discover</a>
+        <ul class="dropdown-menu">
+          <li><button class="dropdown-item" type="button">Action</button></li>
+          <li><button class="dropdown-item" type="button">Another action</button></li>
+          <li><button class="dropdown-item" type="button">Something else here</button></li>
+        </ul>
+      </div>
     </nav>
-  </div>
+    <div class="icons navbar-links">
+      <a routerLink="/login" class="text"><i class="fa-solid fa-user"></i> icone 1</a>
+      <a routerLink="/cart" class="text"><i class="fa-solid fa-cart-shopping"> icone 2</i></a>
+    </div>
 </header>
 
 <main>
   <router-outlet></router-outlet>
 </main>
 
-<footer class="footer">
-  <div class="footer-container">
-    <h3 class="footer-logo">LOGO</h3>
-    <p>Your natural candle made for your home and for your wellness.</p>
-    <nav class="footer-links">
-      <a href="#" class="footer-link">Privacy Policy</a>
-      <a href="#" class="footer-link">Terms of Service</a>
-    </nav>
-    <p>&copy; 2023 MyApp</p>
-  </div>
-</footer>
+<div class="bottom-container"></div>
