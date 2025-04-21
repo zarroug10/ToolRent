@@ -13,11 +13,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let product of paginatedProducts">
-      <div class="product-card text-center p-3 border rounded" [ngClass]="" >
-        <img [src]="product.image" [alt]="product.name" class="product-image img-fluid mb-2">
+      <div class="product-card text-center p-3 border rounded" >
+        <div class="product-image-container">
+          <img [src]="product.image" [alt]="product.name" class="product-image">
+        </div>
         <h3 class="h5">{{ product.name }}</h3>
         <p class="text-muted">{{ product.description }}</p>
-        <button style="background-color: #077A7D; padding: .75em; color: #F5EEDD; border:none; border-radius: 25px;" data-bs-toggle="modal" data-bs-target="#productModal">Add to Cart</button>
+        <button style="background-color: #7AE2CF; padding: .75em; color: #06202B; border: none; padding: 10px; border-radius: 10px;" 
+        data-bs-toggle="modal" data-bs-target="#productModal" (click)="setProductData(product)">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -54,10 +57,10 @@
       <div class="col-md-6">
         <h2>What our customers say</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, animi voluptatum. Dignissimos?</p>
-        <button style="background-color: #7AE2CF; padding: .75em; border:non; border-radius: 25px; border: none; color: #06202B;  box-shadow: 5px 2px 8px  #06202B; ;">Learn more</button>
+        <button style="background-color: #7AE2CF; padding: .4em; border:non; border-radius: 10px; border: none; color: #06202B;  box-shadow: 5px 2px 8px  #06202B; ;">Learn more</button>
       </div>
       <div class="col-md-6 text-center">
-        <img src="images/Pesticide.png" alt="Customer Review" class="img-fluid shadow">
+        <img src="images/Pesticide.png" alt="Customer Review" class=" img-thumbnail img-fluid shadow">
       </div>
     </div>
   </div>
@@ -87,5 +90,5 @@
   </div>
 </div>
 
-<app-product-dialog  #productModal></app-product-dialog>
+<app-product-dialog [product]="data"  #productModal></app-product-dialog>
 

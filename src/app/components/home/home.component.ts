@@ -1,6 +1,7 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ProductDialogComponent } from "../../shared/product-dialog/product-dialog.component";
+import { Product } from '../../interface/Product';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +10,20 @@ import { ProductDialogComponent } from "../../shared/product-dialog/product-dial
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
- public  products = [
-    { name: 'Scented Candle', description: 'A relaxing lavender-scented candle.', image: 'images/image.png' },
-    { name: 'Decorative Candle', description: 'A beautiful decorative candle.', image: 'images/image.png' },
-    { name: 'Wellness Candle', description: 'Promotes wellness and relaxation.', image: 'images/image.png' },
-    { name: 'Holiday Candle', description: 'Perfect for the holiday season.', image: 'images/image.png' },
-    { name: 'Vanilla Candle', description: 'Sweet vanilla-scented candle.', image: 'images/image.png' },
-    { name: 'Rose Candle', description: 'Romantic rose-scented candle.', image: 'images/image.png' },
-    { name: 'Citrus Candle', description: 'Refreshing citrus-scented candle.', image: 'images/image.png' },
-    { name: 'Ocean Breeze Candle', description: 'Calming ocean breeze candle.', image: 'images/image.png' },
-    { name: 'Woodland Candle', description: 'Earthy woodland-scented candle.', image: 'images/image.png' },
-    { name: 'Berry Candle', description: 'Sweet berry-scented candle.', image: 'images/image.png' }
+
+  public data! :Product;
+  
+ public  products :Product[] = [
+    { name: 'Scented Candle', description: 'A relaxing lavender-scented candle.', image: 'https://picsum.photos/200/300' },
+    { name: 'Decorative Candle', description: 'A beautiful decorative candle.', image: 'https://picsum.photos/200/320' },
+    { name: 'Wellness Candle', description: 'Promotes wellness and relaxation.', image: 'https://picsum.photos/200/310' },
+    { name: 'Holiday Candle', description: 'Perfect for the holiday season.', image: 'https://picsum.photos/200/330' },
+    { name: 'Vanilla Candle', description: 'Sweet vanilla-scented candle.', image: 'https://picsum.photos/200/340' },
+    { name: 'Rose Candle', description: 'Romantic rose-scented candle.', image: 'https://picsum.photos/200/301' },
+    { name: 'Citrus Candle', description: 'Refreshing citrus-scented candle.', image: 'https://picsum.photos/200/210' },
+    { name: 'Ocean Breeze Candle', description: 'Calming ocean breeze candle.', image: 'https://picsum.photos/200/400' },
+    { name: 'Woodland Candle', description: 'Earthy woodland-scented candle.', image: 'https://picsum.photos/200/500' },
+    { name: 'Berry Candle', description: 'Sweet berry-scented candle.', image: 'https://picsum.photos/200/700' }
   ];
   reviews = [
     {
@@ -69,12 +73,10 @@ export class HomeComponent {
   }
  public openDialog() {
     this.isOpen = true;
+  } 
+  
+  public setProductData(product: Product) {
+    this.data = product;
   }
-  public isParagraphOverflowing(element: HTMLElement): boolean {
-    const computedStyle = window.getComputedStyle(element);
-    const lineHeight = parseFloat(computedStyle.lineHeight);
-    const maxLines = parseInt(computedStyle.webkitLineClamp || '0', 10);
-    const maxHeight = lineHeight * maxLines;
-    return element.scrollHeight > maxHeight;
-  }
+
 }

@@ -1,30 +1,34 @@
-
-
 <!-- Modal -->
-<div class="modal fade" id="productModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+<div class="modal fade" id="productModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="productModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content ">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="productModalLabel">Product Name</h1>
+                <h1 class="modal-title fs-5" id="productModalLabel">{{product?.name}}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ">
                 <div class="product-content">
-                    <div class="product-description cpl-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel nisi id libero tincidunt tincidunt.</p>
-                        <div class="product-price">
-                            <strong>Price:</strong> $99.99
+                    <div class="product-description ">
+                        <p>{{product?.description}}</p>
+                        <div class="product-image text-center">
+                            <img [src]="product?.image" alt="Product Image">
                         </div>
                     </div>
-                    <div class="product-image col-6">
-                        <img src="assets/images/product-placeholder.png" alt="Product Image">
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div class="product-price">
+                        <strong>Price:</strong> $99.99
+                    </div>
+                    <div class="d-flex gap-3 ">
+                        <button type="button"
+                            style="background-color:#F5EEDD;border: none; padding: 10px; border-radius: 10px;"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="button"
+                            style="background-color:#7AE2CF;border: none; padding: 10px; border-radius: 10px;">Rent
+                            Now</button>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Rent Now</button>
-            </div>
         </div>
     </div>
-</div>
