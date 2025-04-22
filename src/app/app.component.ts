@@ -1,9 +1,12 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { featherShoppingCart, featherUser } from '@ng-icons/feather-icons';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterLink,RouterLinkActive],
+  imports: [RouterOutlet,RouterLink,RouterLinkActive,NgIcon],
+  providers: [provideIcons({ featherShoppingCart ,featherUser})],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

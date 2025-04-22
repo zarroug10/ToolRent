@@ -1,6 +1,7 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
+
 .navbar-container {
   display: flex;
   justify-content: space-around;
@@ -19,60 +20,113 @@
   padding: 0;
 }
 
-.text{
-    text-decoration: none;
-    color: #06202B;
-    margin: 2px 20px;
+.text {
+  text-decoration: none;
+  color: #06202B;
+  margin: 2px 20px;
 }
 
-footer{
-    background-color: #06202B;
-    color: #F5EEDD;
-    margin-bottom: 0;
+footer {
+  background-color: #06202B;
+  color: #F5EEDD;
+  margin-bottom: 0;
 }
-.footer-container{
+
+.footer-container {
   text-align: center;
-    padding: 10px 15%;
-    line-height: 40px;
+  padding: 10px 15%;
+  line-height: 40px;
 }
-.footer-line{
-    color: #F5EEDD;
-    height:3px;
-    opacity: 1;
+
+.footer-line {
+  color: #F5EEDD;
+  height: 3px;
+  opacity: 1;
 }
 
 .dropdown-menu {
-    display: none;
-  }
-  
-  .dropdown-menu.show {
-    display: block;
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.text.active {
+  text-decoration: underline;
+  color: black;
+}
+
+.main {
+  min-height: calc(100vh - 80px); /* Adjust based on header/footer height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bottom-container {
+  background-image: url('https://deta.surf/footer-32-yesdither-nomatte.gif');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: saturate(125%);
+  padding: 9.8em;
+  width: 100%;
+  background-color: #7ae2cf88;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    padding: 15px;
   }
 
-  a:hover{
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-  }
-  .text.active {
-    text-decoration: underline;
-    color: black;
-  }
-  .main {
-    min-height: calc(100vh - 80px); /* Adjust based on header/footer height */
-    display: flex;
+  .navbar-links {
     flex-direction: column;
-    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .text {
+    margin: 5px 0;
+  }
+
+  .footer-container {
+    padding: 10px 5%;
   }
 
   .bottom-container {
-    background-image: url('https://deta.surf/footer-32-yesdither-nomatte.gif');
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: saturate(125%);
-    padding: 9.8em;
-    width: 100%;
-    background-color:#7ae2cf88 ;
-
+    padding: 5em;
   }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 10px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  .footer-container {
+    padding: 10px 2%;
+    font-size: 14px;
+  }
+
+  .bottom-container {
+    padding: 3em;
+  }
+}
