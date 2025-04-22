@@ -26,24 +26,6 @@
   margin: 2px 20px;
 }
 
-footer {
-  background-color: #06202B;
-  color: #F5EEDD;
-  margin-bottom: 0;
-}
-
-.footer-container {
-  text-align: center;
-  padding: 10px 15%;
-  line-height: 40px;
-}
-
-.footer-line {
-  color: #F5EEDD;
-  height: 3px;
-  opacity: 1;
-}
-
 .dropdown-menu {
   display: none;
 }
@@ -96,11 +78,6 @@ a:hover {
   .text {
     margin: 5px 0;
   }
-
-  .footer-container {
-    padding: 10px 5%;
-  }
-
   .bottom-container {
     padding: 5em;
   }
@@ -121,10 +98,7 @@ a:hover {
     margin: 5px 0;
   }
 
-  .footer-container {
-    padding: 10px 2%;
-    font-size: 14px;
-  }
+
 
   .bottom-container {
     padding: 3em;

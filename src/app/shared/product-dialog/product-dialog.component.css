@@ -1,0 +1,34 @@
+.btn-first{
+    background-color: #7AE2CF;
+    padding: .75em;
+    color: #06202B;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-second{
+    background-color: #F5EEDD;
+    padding: .75em;
+    color: #06202B;
+    border: none;
+    border-radius: 10px;
+}
+
+.image-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.indicator-dot.active {
+  background-color: #007bff;
+}
+

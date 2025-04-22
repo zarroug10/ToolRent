@@ -2,34 +2,41 @@
 <div class="modal fade" id="productModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="productModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content ">
+        <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="productModalLabel">{{product?.name}}</h1>
+                <h1 class="modal-title fs-5" id="productModalLabel">{{ product?.name }}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body ">
+            <div class="modal-body">
                 <div class="product-content">
-                    <div class="product-description ">
-                        <p>{{product?.description}}</p>
+                    <div class="product-description">
+                        <p>{{ product?.description }}</p>
                         <div class="product-image text-center">
-                            <img [src]="product?.image" alt="Product Image">
+                            <img [src]="currentImage" alt="Product Image" class="img-fluid">
                         </div>
                     </div>
                 </div>
-                <!-- ToDO Add a carousal container for the image  -->
-                <div class="modal-footer d-flex justify-content-between">
-                    <div class="product-price">
-                        <strong>Price:</strong> $99.99
+                <div class="image-navigation d-flex flex-column align-items-center mt-3">
+                    <div class="image-indicator d-flex gap-2 mb-2">
+                        <span *ngFor="let photo of photos; let i = index"
+                              class="indicator-dot"
+                              [class.active]="i === currentIndex"></span>
                     </div>
-                    <div class="d-flex gap-3 ">
-                        <button type="button"
-                            style="background-color:#F5EEDD;border: none; padding: 10px; border-radius: 10px;"
-                            data-bs-dismiss="modal">Close</button>
-                        <button type="button"
-                            style="background-color:#7AE2CF;border: none; padding: 10px; border-radius: 10px;">Rent
-                            Now</button>
+                    <div class="d-flex justify-content-between w-100">
+                        <button class="btn-second" (click)="previousImage()">Previous</button>
+                        <button class="btn-second" (click)="nextImage()">Next</button>
                     </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <div class="product-price">
+                    <strong>Price:</strong> $99.99
+                </div>
+                <div class="d-flex gap-3">
+                    <button type="button" class="btn-second" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn-first">Rent Now</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
