@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card d-flex justify-content-center align-items-center" style="width: 80%;">
+        <div class="col-9 col-md-8 col-lg-6">
+            <h1 class="text-center">Sign In</h1>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" id="email" formControlName="email" class="form-control" [(ngModel)]="email" required>
+                    @if(loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)) {
+                        <div class="text-danger">
+                            Please enter a valid email.
+                        </div>
+                    }
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" formControlName="password" [(ngModel)]="password" class="form-control" required>
+                    @if (loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)) {
+                        <div class="text-danger">
+                            Please enter a valid password.
+                        </div>
+                    }
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
